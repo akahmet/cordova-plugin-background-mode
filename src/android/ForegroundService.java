@@ -61,7 +61,16 @@ public class ForegroundService extends Service {
     public IBinder onBind (Intent intent) {
         return null;
     }
-
+    
+    /**
+     * Prevent app from being killed by Android
+     * 
+     */
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+         return Service.START_STICKY;
+    }
+    
     /**
      * Put the service in a foreground state to prevent app from being killed
      * by the OS.
